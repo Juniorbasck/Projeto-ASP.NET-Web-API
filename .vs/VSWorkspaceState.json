@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\projetoAPI",
+    "\\projetoAPI\\API",
+    "\\projetoAPI\\API\\API",
+    "\\projetoAPI\\API\\API\\Controllers",
+    "\\projetoAPI\\API\\API\\Data",
+    "\\projetoAPI\\API\\API\\Models",
+    "\\projetoAPI\\API\\API\\Repositorios"
+  ],
+  "SelectedNode": "\\projetoAPI\\API\\API\\Repositorios\\UsuarioReposity.cs",
+  "PreviewInSolutionExplorer": false
+}

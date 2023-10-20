@@ -9,26 +9,25 @@ const Login = () => {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
       const response = await axios.post("https://localhost:7111/api/Login", {
-        name: nome, // Deve ser "name" em vez de "userName"
-        email: email, // Deve ser "email" em vez de "userEmail"
+        name: nome, 
+        email: email, 
       });
 
       if (response.status === 200) {
         var token = localStorage.setItem("token", response.data.token);
         console.log(token);
-        setMessage(response.data.mensagem); // A mensagem está na propriedade "mensagem"
+        setMessage(response.data.mensagem); 
         setLoggedIn(true);
       }
     } catch (error) {
       if (error.response) {
-        setMessage(error.response.data.mensagem); // A mensagem de erro também está na propriedade "mensagem"
+        setMessage(error.response.data.mensagem); 
       } else {
         console.error("Erro durante o login:", error);
       }

@@ -6,7 +6,7 @@ import { Redirect } from "react-router-dom";
 const Login = () => {
   window.scrollTo(0, 0);
 
-  const [nome, setNomel] = useState("");
+  const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
@@ -23,7 +23,7 @@ const Login = () => {
       if (response.status === 200) {
         var token = localStorage.setItem("token", response.data.token);
 
-        console.log(token)
+        console.log(token);
         setMessage("Login realizado com sucesso");
         setLoggedIn(true);
       }
@@ -51,13 +51,13 @@ const Login = () => {
             type="name"
             placeholder="Nome"
             value={nome}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setNome(e.target.value)}
           />
           <input
             type="email"
             placeholder="Email"
             value={email}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <button type="submit">Login</button>
         </form>

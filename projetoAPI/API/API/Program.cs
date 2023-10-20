@@ -33,7 +33,17 @@ namespace API
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
-            }); 
+            });
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyOrigin();
+                    builder.AllowAnyHeader();
+                    builder.AllowAnyMethod();
+                });
+            });
 
             // Add services to the container.
 

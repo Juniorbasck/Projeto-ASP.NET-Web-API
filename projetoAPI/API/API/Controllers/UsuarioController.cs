@@ -1,13 +1,13 @@
 ﻿using API.Models;
 using API.Repositorios;
 using API.Repositorios.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
 namespace API.Controllers
 {   
-    //api/{nomeDaController
     [Route("api/[controller]")]
     [ApiController]
     public class UsuarioController : ControllerBase
@@ -20,6 +20,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<List<UsuarioModel>>> GetAllUsers()
         {   
 
@@ -29,6 +30,7 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<List<UsuarioModel>>> SerchUserById(int id)
         {
 
@@ -39,6 +41,7 @@ namespace API.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<UsuarioModel>> AddUser([FromBody] UsuarioModel usuarioModel)
         {
             UsuarioModel usuario = await _usuarioReposity.AddUser(usuarioModel);
@@ -47,6 +50,7 @@ namespace API.Controllers
         }
 
         [HttpPost("{id}")]
+        [Authorize]
         public async Task<ActionResult<UsuarioModel>> UpdateUser([FromBody] UsuarioModel usuarioModel, int id)
         {   
 
@@ -58,6 +62,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult<UsuarioModel>> RemoveUser(int id)
         {
 

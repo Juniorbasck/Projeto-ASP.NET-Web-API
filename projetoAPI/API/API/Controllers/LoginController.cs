@@ -1,5 +1,6 @@
 ﻿using API.Models;
 using API.Repositorios.Interfaces;
+using API.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.VisualBasic;
@@ -19,16 +20,30 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Logar(string userName, string userEmail)
+        public async Task<ActionResult<dynamic>> Logar([FromBody] UsuarioModel user)
         {
             try
-            {
-                var usuario = await _login.VerifyUser(userName, userEmail);
+            {   
+
+                var pessoa = user.Name; 
+                var email = user.Email; 
+
+                var usuario = await _login.VerifyUser(pessoa, email);
 
                 if (usuario)
                 {
-                    return Ok(new { mensagem = "Login bem-sucedido" });
-                }
+                    var tokenService = new TokenService();
+
+                    var token = tokenService.GenerateToken(user);
+
+                    var response = new
+                    {
+                        Usuario = user, 
+                        chave = token,
+                        mensagem = "Login bem-sucedido"
+                    };
+                    return Ok(response);
+                }       
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Credenciais inválidas");

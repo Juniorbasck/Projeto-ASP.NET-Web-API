@@ -1,6 +1,7 @@
 ﻿using API.Models;
 using API.Repositorios;
 using API.Repositorios.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -20,6 +21,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<List<TarefaModel>>> GetAllTasks()
         {   
             List<TarefaModel> tarefa = await _tarefaReposity.SerchAllTaks();
@@ -28,6 +30,7 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<List<TarefaModel>>> SerchTaskById(int id)
         {
 
@@ -37,6 +40,7 @@ namespace API.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<TarefaModel>> AddTask([FromBody] TarefaModel tarefaModel)
         {
             TarefaModel tarefa = await _tarefaReposity.AddTask(tarefaModel);
@@ -45,6 +49,7 @@ namespace API.Controllers
         }
 
         [HttpPost("{id}")]
+        [Authorize]
         public async Task<ActionResult<TarefaModel>> UpdateTask([FromBody] TarefaModel tarefaModel, int id)
         {
 
@@ -56,6 +61,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult<TarefaModel>> RemoveTask(int id)
         {
 

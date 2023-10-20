@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "la69r9Zxms/6J1MfYPO+qu6QtT7AE2JLXuUYAhebTHLcj4YTvH7jQcy6xZYMJVro4ox/sdA2zg7aD5T3rwa0Fg==",
+  "dgSpecHash": "x3c76xoFdRyc42D+XBQpJTbaMbwBbQFQndyXfakvPM0d4PIzP1hUGSWk+qLwFSnd2irjmk8dbiHjF5dMPz91dA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\AdilsonAlvesNevesJun\\Desktop\\Arquivos\\Estudos\\projetcs\\projeto-ASP.NET-Web-API-\\projetoAPI\\API\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\adilson.junior\\Desktop\\Projects\\Trabalho-DWD\\projetoAPI\\API\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\adilson.junior\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\adilson.junior\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.0\\microsoft.aspnetcore.authentication.jwtbearer.6.0.0.nupkg.sha512",

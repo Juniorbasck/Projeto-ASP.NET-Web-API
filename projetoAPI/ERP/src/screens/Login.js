@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header from "./../components/Header";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
@@ -16,31 +16,28 @@ const Login = () => {
 
     try {
       const response = await axios.post("https://localhost:7111/api/Login", {
-        userName: nome,
-        userEmail: email,
+        name: nome, // Deve ser "name" em vez de "userName"
+        email: email, // Deve ser "email" em vez de "userEmail"
       });
 
       if (response.status === 200) {
         var token = localStorage.setItem("token", response.data.token);
-
         console.log(token);
-        setMessage("Login realizado com sucesso");
+        setMessage(response.data.mensagem); // A mensagem está na propriedade "mensagem"
         setLoggedIn(true);
       }
     } catch (error) {
       if (error.response) {
-        setMessage("Credenciais inválidas");
+        setMessage(error.response.data.mensagem); // A mensagem de erro também está na propriedade "mensagem"
       } else {
         console.error("Erro durante o login:", error);
       }
     }
   };
 
-  useEffect(() => {
-    if (loggedIn) {
-      return <Redirect to="/home" />;
-    }
-  }, [loggedIn]);
+  if (loggedIn) {
+    return <Redirect to="/home" />;
+  }
 
   return (
     <>

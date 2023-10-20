@@ -37,12 +37,12 @@ namespace API
 
             builder.Services.AddCors(options =>
             {
-                options.AddDefaultPolicy(builder =>
+                options.AddPolicy("AllowAnyOrigin", builder =>
                 {
                     builder.AllowAnyOrigin();
                     builder.AllowAnyHeader();
                     builder.AllowAnyMethod();
-                });
+                }); 
             });
 
             // Add services to the container.
@@ -71,6 +71,8 @@ namespace API
             }
 
             app.UseHttpsRedirection();
+            
+            app.UseCors("AllowAnyOrigin");
 
             app.UseAuthentication();
             app.UseAuthorization();

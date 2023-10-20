@@ -2,7 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+
+  
   return (
+    
     <div>
       {/* Top Header */}
       <div className="Announcement ">
@@ -39,11 +42,6 @@ const Header = () => {
           <div className="mobile-header">
             <div className="container ">
               <div className="row ">
-                <div className="col-6 d-flex align-items-center">
-                  <Link className="navbar-brand" to="/">
-                    <img alt="logo" src="/images/logo.png" />
-                  </Link>
-                </div>
                 <div className="col-6 d-flex align-items-center justify-content-end Login-Register">
                   <div className="btn-group">
                     <button
@@ -58,10 +56,6 @@ const Header = () => {
                     <div className="dropdown-menu">
                       <Link className="dropdown-item" to="/profile">
                         Profile
-                      </Link>
-
-                      <Link className="dropdown-item" to="#">
-                        Logout
                       </Link>
                     </div>
                   </div>

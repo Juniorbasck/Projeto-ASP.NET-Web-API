@@ -9,7 +9,8 @@ const Login = () => {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-
+  const [loggedIn, setLoggedIn] = useState(false);
+  
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -23,6 +24,7 @@ const Login = () => {
         var token = localStorage.setItem("token", response.data.token);
         console.log(token);
         setMessage(response.data.mensagem); 
+        setMessage("Login feito com sucesso");
         setLoggedIn(true);
       }
     } catch (error) {

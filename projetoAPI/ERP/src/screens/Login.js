@@ -21,15 +21,18 @@ const Login = () => {
       });
 
       if (response.status === 200) {
-        var token = localStorage.setItem("token", response.data.token);
+
+        const token = response.data.chave;
+        localStorage.setItem("token", token);
+
         console.log(token);
-        setMessage(response.data.mensagem); 
+        
         setMessage("Login feito com sucesso");
         setLoggedIn(true);
       }
     } catch (error) {
       if (error.response) {
-        setMessage(error.response.data.mensagem); 
+        setMessage("Credenciais inválidas"); 
       } else {
         console.error("Erro durante o login:", error);
       }

@@ -111,15 +111,6 @@ const Header = () => {
                   >
                     Hi, Admin Doe
                   </button>
-                  <div className="dropdown-menu">
-                    <Link className="dropdown-item" to="/profile">
-                      Profile
-                    </Link>
-
-                    <Link className="dropdown-item" to="#">
-                      Logout
-                    </Link>
-                  </div>
                 </div>
               </div>
             </div>

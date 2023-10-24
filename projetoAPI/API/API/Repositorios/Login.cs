@@ -14,6 +14,18 @@ namespace API.Repositorios
             _dbContext = sistemaTarefasDBcontex;
         }
 
+        public async Task<int> searchUserId(string nome)
+        {
+            var user = await _dbContext.Usuarios.FirstOrDefaultAsync(u => u.Name == nome);
+
+            if (user != null)
+            {
+                return user.Id;
+            }
+
+            return -1; 
+        }
+
         public async Task<bool> VerifyUser(string userName, string userEmail)
         {
             return await _dbContext.Usuarios

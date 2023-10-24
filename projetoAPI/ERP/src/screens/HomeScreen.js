@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./../components/Header";
+import AddTask from "../components/AddTask";
 
 
 const HomeScreen = () => {
@@ -7,7 +8,7 @@ const HomeScreen = () => {
   return (
     <div>
       <Header />
-     dwdawdaw 
+      <AddTask />
     </div>
   );
 };

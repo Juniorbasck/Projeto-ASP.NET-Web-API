@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.VisualBasic;
 using System;
+using System.Runtime.InteropServices;
 
 namespace API.Controllers
 {
@@ -23,12 +24,16 @@ namespace API.Controllers
         public async Task<ActionResult<dynamic>> Logar([FromBody] UsuarioModel user)
         {
             try
-            {   
-
-                var pessoa = user.Name; 
+            {
+               
+                var nome = user.Name; 
                 var email = user.Email; 
+                
+                var usuario = await _login.VerifyUser(nome, email);
 
-                var usuario = await _login.VerifyUser(pessoa, email);
+                var SearchUserId = await _login.searchUserId(nome);
+
+                var useId = SearchUserId;
 
                 if (usuario)
                 {
@@ -37,8 +42,10 @@ namespace API.Controllers
                     var token = tokenService.GenerateToken(user);
 
                     var response = new
-                    {
-                        Usuario = user, 
+                    {   
+                        UserId = useId,
+                        nome = user.Name,
+                        UserEmail = user.Email,
                         chave = token,
                         mensagem = "Login bem-sucedido"
                     };

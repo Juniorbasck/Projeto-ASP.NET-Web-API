@@ -23,11 +23,14 @@ const Login = () => {
       if (response.status === 200) {
 
         const token = response.data.chave;
+        const message = response.data.mensagem;
+        const userId = response.data.userId;
         localStorage.setItem("token", token);
+        localStorage.setItem("userId", userId);
 
         console.log(token);
-        
-        setMessage("Login feito com sucesso");
+        console.log(userId)
+        setMessage(message);
         setLoggedIn(true);
       }
     } catch (error) {

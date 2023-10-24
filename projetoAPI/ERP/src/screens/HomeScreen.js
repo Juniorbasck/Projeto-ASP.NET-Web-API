@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./../components/Header";
 import AddTask from "../components/AddTask";
+import Table from "../components/Table";
 
 
 const HomeScreen = () => {
@@ -9,6 +10,7 @@ const HomeScreen = () => {
     <div>
       <Header />
       <AddTask />
+      <Table />
     </div>
   );
 };

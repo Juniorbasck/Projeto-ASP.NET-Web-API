@@ -1,0 +1,22 @@
+.PrinpalContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+table{
+   margin-top: 50px;
+}
+
+tr{
+    border-bottom: solid gray 1px;
+}
+
+th{
+ padding-left: 30px;
+ padding-right: 60px;
+}
+
+td{
+    border-bottom: solid gray 1px;
+}

@@ -34,8 +34,8 @@ const AddTask = () => {
             id: id, 
             name: name,
             description: description,
-            status: status,
-            valor: valor ,
+            status: parseInt(status),
+            valor: parseInt(valor) ,
             usuarioId: usuarioId,
         },
         config
@@ -56,7 +56,7 @@ const AddTask = () => {
   return (
     <div>
         <form onSubmit={handleTask}>
-            <div style={{ display: 'flex', alignItems: 'center', padding: "15px", border: "solid gray 1px"}}>
+            <div style={{ display: 'flex', alignItems: 'center', padding: "15px"}}>
                 <div style={{ marginRight: '10px', marginLeft: "70px"}}>
                     <label style={{marginRight: "10px"}}>Nome da Tarefa:</label>
                     <input className="name-button dropdown-toggle" type="text"  placeholder="Nome da tarefa"  value={name} onChange={(e) => setName(e.target.value)} />

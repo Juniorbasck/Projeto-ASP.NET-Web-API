@@ -66,7 +66,7 @@ textarea:focus {
 }
 .search-button {
   width: 20%;
-  background-color: black;
+  background-color: #5f0475;
   color: white;
   border: 0;
   text-transform: uppercase;

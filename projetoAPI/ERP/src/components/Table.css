@@ -19,4 +19,25 @@ th{
 
 td{
     border-bottom: solid gray 1px;
+    padding: 20px;
+}
+
+
+.botao-excluir {
+    background-color: #af0707;  
+    color: #FFFFFF; 
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer; 
+  }
+
+
+  .botao-excluir:hover {
+    background-color: #FF3333; 
+  }
+
+.total{
+    margin-left: 80%;
+    margin-top: 20px;
 }

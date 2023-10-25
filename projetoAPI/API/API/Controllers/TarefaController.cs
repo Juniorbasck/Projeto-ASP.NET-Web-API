@@ -8,7 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace API.Controllers
 {   
-    //api/{nomeDaController
+   
     [Route("api/[controller]")]
     [ApiController]
     public class TarefaController : ControllerBase

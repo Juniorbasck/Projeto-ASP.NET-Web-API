@@ -4,6 +4,7 @@ import "./Table.css";
 
 const Table = () => {
   const [tasks, setTasks] = useState([]);
+  const [totalValue, setTotalValue] = useState(0);
   const token = localStorage.getItem("token");
   const userId = localStorage.getItem("userId");
 
@@ -22,17 +23,19 @@ const Table = () => {
         console.log(userId)
         if (response.status === 200) {
 
-          const userTasks = response.data;
+          const userTasks = response.data.filter((task) => task.usuarioId == userId);
           setTasks(userTasks);
           console.log("passou aqui")
           
+          const total = userTasks.reduce((acc, task) => acc + task.valor, 0);
+          setTotalValue(total);
         }
       } catch (error) {
         console.error("Erro ao buscar tarefas:", error);
       }
     };
-    fetchTasks(); // Chama a função quando o componente é montado
-  }, [token, userId]); // Executa sempre que token ou userId mudam
+    fetchTasks(); 
+  }, [token, userId]); 
 
   console.log(tasks);
 
@@ -45,7 +48,7 @@ const Table = () => {
       });
 
       if (response.status === 200) {
-        // Atualize a lista de tarefas após a exclusão
+        
         setTasks(tasks.filter((task) => task.id !== taskId));
       }
     } catch (error) {
@@ -60,33 +63,39 @@ const Table = () => {
       {tasks.length === 0 ? (
         <p>Nenhuma tarefa encontrada.</p>
       ) : (
-        <table>
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Descrição</th>
-              <th>Status</th>
-              <th>Valor</th>
-              <th>Excluir</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tasks.map((task) => (
-              <tr key={task.id}>
-                <td>{task.name}</td>
-                <td>{task.description}</td>
-                <td>{task.status}</td>
-                <td>{task.valor}</td>
-                <td>
-                  <button onClick={() => handleDeleteTask(task.id)}>Excluir</button>
-                </td>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Status</th>
+                <th>Valor</th>
+                <th>Excluir</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {tasks.map((task) => (
+                <tr key={task.id}>
+                  <td>{task.name}</td>
+                  <td>{task.description}</td>
+                  <td>{task.status}</td>
+                  <td>R${task.valor}</td>
+                  <td>
+                    <button className="botao-excluir" onClick={() => handleDeleteTask(task.id)}>
+                      Excluir
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          <h5 className="total">Total: R${totalValue.toFixed(2)}</h5>
+        </div>
       )}
     </div>
   );
-}  
+};
 
 export default Table;

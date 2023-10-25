@@ -32,6 +32,19 @@ td{
     cursor: pointer; 
   }
 
+  .botao-edidtar{
+    background-color: #00b7ff;  
+    color: #FFFFFF; 
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer; 
+  }
+
+  .botao-edidtar:hover{
+    background-color: #00c0fa;
+  }
+
 
   .botao-excluir:hover {
     background-color: #FF3333; 
@@ -40,4 +53,40 @@ td{
 .total{
     margin-left: 80%;
     margin-top: 20px;
+}
+
+.container-editar{
+    margin: 20px;
+}
+
+.titulo{
+    text-decoration: bold;
+    margin-bottom: 10px;
+}
+
+.inputs{
+    margin: 5px;
+    border: solid gray 1px;
+    border-radius: 5px;
+}
+
+.btnSalvar{
+    margin-top: 10px;
+    background-color: #028314;  
+    color: #FFFFFF; 
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.btCancelar{
+    margin-top: 10px;
+    background-color: #af0707;  
+    color: #FFFFFF; 
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
 }

@@ -69,9 +69,9 @@ const AddTask = () => {
                 <div style={{marginRight: "10px"}}>
                     <label style={{marginRight: "10px"}}>Status:</label>
                     <select className="name-button dropdown-toggle" value={status} onChange={(e) => setStatus(e.target.value)}>
-                        <option value={StatusTarefas.Afazer}>A fazer</option>
-                        <option value={StatusTarefas.EmAndamento}>Em andamento</option>
-                        <option value={StatusTarefas.Concluido}>Concluído</option>
+                        <option value={StatusTarefas.Afazer}>Pagar</option>
+                        <option value={StatusTarefas.EmAndamento}>Pagando</option>
+                        <option value={StatusTarefas.Concluido}>Pago</option>
                     </select>
                 </div>
                 <div style={{marginRight: "10px"}}>

@@ -15,7 +15,7 @@ const App = () => {
         <Route path="/home" component={HomeScreen} />
       </Switch>
     </Router>
-  );
+  );  
 };
 
 export default App;
